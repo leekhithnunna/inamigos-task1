@@ -404,15 +404,28 @@ input, textarea, select { font-family:inherit; }
 }
 .ir1 { width:86%;height:86%; background:linear-gradient(135deg,rgba(46,139,87,.05),rgba(76,175,80,.03)); animation:spin-r 26s linear infinite; }
 .ir2 { width:66%;height:66%; background:linear-gradient(135deg,rgba(255,193,7,.05),rgba(46,139,87,.03)); animation:spin-r 20s linear infinite reverse; }
-.ir3 { width:46%;height:46%; border-style:dashed; animation:spin-r 14s linear infinite; }
+.ir3 { width:46%;height:46%; border-style:dashed; border-color:rgba(46,139,87,.22); animation:spin-r 14s linear infinite; }
 .illus-center {
-  position: absolute; width: 96px; height: 96px;
+  position: absolute; width: 110px; height: 110px;
   background: linear-gradient(135deg,var(--primary),var(--secondary));
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   color: #fff; font-size: 2.4rem;
-  box-shadow: 0 8px 32px rgba(46,139,87,.4); z-index: 2;
+  box-shadow: 0 8px 32px rgba(46,139,87,.4), 0 0 0 6px rgba(46,139,87,.15), 0 0 0 12px rgba(46,139,87,.07); z-index: 2;
+  animation: pulse-center 3s ease-in-out infinite;
 }
+.illus-center-icon {
+  width: 72px; height: 72px;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.18));
+  animation: spin-icon 18s linear infinite;
+}
+@keyframes pulse-center {
+  0%,100% { box-shadow: 0 8px 32px rgba(46,139,87,.4), 0 0 0 6px rgba(46,139,87,.15), 0 0 0 12px rgba(46,139,87,.07); transform: scale(1); }
+  50%      { box-shadow: 0 12px 40px rgba(46,139,87,.55), 0 0 0 10px rgba(46,139,87,.18), 0 0 0 20px rgba(46,139,87,.06); transform: scale(1.05); }
+}
+@keyframes spin-icon { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
 .illus-pill {
   position: absolute; display: flex; align-items: center; gap: 7px;
   background: #fff; padding: 9px 15px;
